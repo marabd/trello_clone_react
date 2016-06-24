@@ -28,7 +28,7 @@ class Lists extends React.Component {
 			let index = lists.findIndex( l => l.id === id);
 			this.setState({
 				lists: [ ...lists.slice(0, index), ...lists.slice(index + 1, lists.length) ]
-			})
+			});
 		}).fail( data => {
 			alert('list not deleted!');
 		});
@@ -54,7 +54,7 @@ class Lists extends React.Component {
 			return(<List key={`list-${list.id}`} {...list} deleteList={this.deleteList} />);
 		});
 		return(
-			<div>
+			<div className="row container">
 				<form onSubmit={this.addList.bind(this)} ref='addList'>
 					<input type='text' ref='name' placeholder='List Name' required />
 					<input type='submit' className='btn' value='Add' />

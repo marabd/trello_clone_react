@@ -9,12 +9,12 @@ class ListsController < ApplicationController
   	if @list.save
   		render json: @list
   	else
-  		render json: {errors: @list.errors.full_messages}
+  		render json: {errors: @list.errors.full_messages }
   	end
   end
 
   def destroy
-    @board.list.find(params[:id]).destroy
+    List.find(params[:id]).destroy
     render json: {message: 'list deleted'}
   end
 
